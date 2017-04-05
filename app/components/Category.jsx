@@ -5,7 +5,7 @@ var MovieCard = require('MovieCard');
 var Category = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="category">
         Category Name
         <MovieCard/>
         <MovieCard/>

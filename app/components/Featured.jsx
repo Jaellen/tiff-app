@@ -3,7 +3,7 @@ var React = require('react');
 var Featured = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="featured">
         Featured
       </div> 
     );

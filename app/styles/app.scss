@@ -6,3 +6,16 @@
 @include foundation-everything;
 
 // Components
+@import "components/tiff-app";
+@import "components/nav";
+@import "components/featured";
+@import "components/browse";
+@import "components/category";
+@import "components/movie-card";
+@import "components/movie-brief";
+
+// Fonts 
+@import "base/fonts/roboto500.scss";
+@import "base/fonts/roboto700.scss";
+@import "base/fonts/lato400.scss";
+

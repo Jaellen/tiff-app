@@ -3,7 +3,7 @@ var React = require('react');
 var MovieBrief = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="movie-brief">
         Title 
         Year
         Runtime

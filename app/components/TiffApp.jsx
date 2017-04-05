@@ -7,7 +7,7 @@ var Browse = require('Browse');
 var TiffApp = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="tiff-app">
         <Nav/>
         <Featured/>
         <Browse/>

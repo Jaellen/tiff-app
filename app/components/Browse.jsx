@@ -6,7 +6,7 @@ var MovieBrief = require('MovieBrief');
 var Browse = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="browse">
         Browse Section
         <Category/>
         <Category/>

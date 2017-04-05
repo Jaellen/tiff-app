@@ -1,2 +1,22 @@
-// Colors
-$grey: #333333;
+
+// Palette colors
+$black: #000;
+$dark-grey: #3D3D3D;
+$medium-grey: #767676;
+$light-grey: #CCC;
+$orange: #FF512D;
+
+// Default margins and padding
+$header-height: 50px;
+$section-padding: 30px 30px;
+
+// Fonts
+$font-museo: 'museo_sans500';
+$font-roboto: 'Roboto', sans-serif;
+$title-font-size: 1.6em;
+
+// Remove start defaults
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}

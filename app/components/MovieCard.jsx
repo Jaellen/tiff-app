@@ -4,8 +4,7 @@ var MovieCard = React.createClass({
   render: function () {
     return (
       <div className="movie-card">
-        Title
-        Image
+        <h4>The Calling</h4>
       </div>
     );
   }

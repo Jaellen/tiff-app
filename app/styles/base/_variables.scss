@@ -7,16 +7,15 @@ $light-grey: #CCC;
 $orange: #FF512D;
 
 // Default margins and padding
-$header-height: 50px;
 $section-padding: 30px 30px;
 
 // Fonts
-$font-museo: 'museo_sans500';
 $font-roboto: 'Roboto', sans-serif;
-$title-font-size: 1.6em;
+$font-lato: 'Lato', sans-serif;
 
 // Remove start defaults
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
+

@@ -6,12 +6,24 @@ var Category = React.createClass({
   render: function () {
     return (
       <div className="category">
-        Category Name
-        <MovieCard/>
-        <MovieCard/>
-        <MovieCard/>
-        <MovieCard/>
-        <MovieCard/>
+        <h3>CATEGORY NAME</h3>
+        <div className="row expanded">
+          <div className="small-2 column">
+            <MovieCard/>
+          </div>
+          <div className="small-2 column">
+            <MovieCard/>
+          </div>
+          <div className="small-2 column">
+            <MovieCard/>
+          </div>
+          <div className="small-2 column">
+            <MovieCard/>
+          </div>
+          <div className="small-2 column end">
+            <MovieCard/>
+          </div>
+        </div>
       </div>
     );
   }

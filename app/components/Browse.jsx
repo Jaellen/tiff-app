@@ -7,7 +7,6 @@ var Browse = React.createClass({
   render: function () {
     return (
       <div className="browse">
-        Browse Section
         <Category/>
         <Category/>
         <Category/>

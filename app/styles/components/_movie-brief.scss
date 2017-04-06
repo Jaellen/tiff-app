@@ -1,5 +1,27 @@
 .movie-brief {
-  height: 300px;
-  padding: $section-padding;
-  background-color: $light-grey;
+  height: 500px;
+  background-color: $black;
+
+  h1 {
+    font-family: $font-roboto;
+    font-weight: 700;
+    color: white;
+  }
+
+  h5, h4 {
+    font-family: $font-lato;
+    color: white;
+  }
+
+  .button {
+    margin-left: 5px;
+    font-weight: 700;
+  }
+
+  .row {
+    margin: 0;
+    max-width: none;
+  }
+
 }
+

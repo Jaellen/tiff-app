@@ -8,6 +8,7 @@ $orange: #FF512D;
 
 // Default margins and padding
 $section-padding: 30px 30px;
+$featured-height: 450px;
 
 // Fonts
 $font-roboto: 'Roboto', sans-serif;
@@ -19,3 +20,16 @@ p, h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+h1 {
+  font-family: $font-roboto;
+  font-size: 26em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: $font-roboto;
+  font-size: 18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}

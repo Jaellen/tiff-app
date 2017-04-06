@@ -1,5 +1,22 @@
 .featured {
-  height: 400px;
-  padding: $section-padding;
+  height: $featured-height;
   background-color: $light-grey;
+
+  .text-block {
+    color: white;  
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 1);
+    padding: 3px;
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+
+  .button {
+    margin-left: 5px;
+    font-weight: 700;
+  }
 }
+

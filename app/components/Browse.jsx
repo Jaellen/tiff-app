@@ -15,9 +15,4 @@ var Browse = React.createClass({
   }
 });
 
-/*
-        <Category category="Science Fiction"/>
-        <Category category="Thriller"/>
-*/
-
 module.exports = Browse;

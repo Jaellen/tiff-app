@@ -6,19 +6,23 @@ var MovieCard = require('MovieCard');
 var Category = React.createClass({ 
   getInitialState: function () {
     return {
-      isLoading: true
-    };
+      isLoading: false 
+    }
   },
   getMovieArray: function(category) {
+    this.setState({
+      isLoading: true,
+      errorMessage: undefined,
+      title: undefined,
+      imageUrl: undefined
+    });
+    
     TiffAPI.getMovieArray(category)
       .then((moviesArray) => {
         this.setState({
-          isLoading: false,
-          movie1: moviesArray[0],
-          movie2: moviesArray[1],
-          movie3: moviesArray[2],
-          movie4: moviesArray[3],
-          movie5: moviesArray[4]
+          title: moviesArray[0].title,
+          imgUrl: moviesArray[0].imgUrl,
+          isLoading: false
         });
       }, (err) => {
         this.setState({
@@ -33,18 +37,27 @@ var Category = React.createClass({
   render: function () {
     var {category} = this.props;
     var {
-      isLoading,
-      movie1,
-      movie2,
-      movie3,
-      movie4,
-      movie5
+      isLoading, 
+      title,
+      imgUrl,
+      errorMessage
     } = this.state;
+
+    function renderMovieCard () {
+      if (isLoading) {
+        return <h5>Loading...</h5>
+      }
+      else if (title && imgUrl) {
+        return <MovieCard title={title} imgUrl={imgUrl}/>
+      }
+    }
     
     function renderError () {
-      if (typeof errorMessage === 'string') {
-        console.log("Error: " + errorMessage);
-        return <h3>Oops! Something went wrong, we're working on it ;)</h3>
+      if (typeof errorMessage === 'string') { 
+        console.log("Error: ", errorMessage);
+        return (
+          <h5>Oops! Something went wrong, we're working on it</h5>
+        )
       }
     }
 
@@ -53,27 +66,13 @@ var Category = React.createClass({
         <div className="category-title">{category}</div>
         <div className="row expanded">
           <div className="small-2 column">
-            <MovieCard movieInfo={movie1}/>
+            {renderMovieCard()}
+            {renderError()}
           </div>
         </div>
       </div>
     );
   }
 });
-
-/*
-          <div className="small-2 column">
-            <MovieCard movieInfo={movie2}/>
-          </div>
-          <div className="small-2 column">
-            <MovieCard movieInfo={movie3}/>
-          </div>
-          <div className="small-2 column">
-            <MovieCard movieInfo={movie4}/>
-          </div>
-          <div className="small-2 column end">
-            <MovieCard movieInfo={movie5}/>
-          </div>
-*/
 
 module.exports = Category;

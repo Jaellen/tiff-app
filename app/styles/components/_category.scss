@@ -1,4 +1,22 @@
 .category {
   height: 250px;
   padding: 20px;
+  
+  .category-title {
+    margin: 0 0 0 29px;
+    font-family: $font-roboto;
+    font-weight: 700;
+    font-size: 22px;
+    color: $light-grey;
+    text-transform: capitalize;
+  }
+  
+  .row {
+    margin: 0;
+    max-width: none;
+  }
+
+  .column {
+    margin: 5px 15px;
+  }
 }

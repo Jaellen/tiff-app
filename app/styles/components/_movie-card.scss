@@ -1,6 +1,12 @@
 .movie-card {
-  height: 100px;
-  width: 200px;
-  padding: 5px;
-  background-color: $orange;
+  height: 130px;
+  width: 230px;
+  background-color: $light-grey;
+  
+  .text-block {
+    color: white;  
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 1);
+  }
+
 }

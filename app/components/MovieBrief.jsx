@@ -80,6 +80,7 @@ var MovieBrief = React.createClass({
               <br></br>
               <h5><span className="text-block">This movie has: {contentTags}</span></h5>
               <br></br>
+              <button className="button">MORE INFO</button>
               <button className="button">+ MY LIST</button>
             </div>
           

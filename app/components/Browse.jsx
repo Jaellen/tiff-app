@@ -5,15 +5,19 @@ var MovieBrief = require('MovieBrief');
 
 var Browse = React.createClass({
   render: function () {
+    
     return (
       <div className="browse">
-        <Category/>
-        <Category/>
-        <Category/>
+        <Category category="Drama"/>
         <MovieBrief/>
       </div>
     )
   }
 });
+
+/*
+        <Category category="Science Fiction"/>
+        <Category category="Thriller"/>
+*/
 
 module.exports = Browse;

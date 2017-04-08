@@ -64,7 +64,7 @@ var MovieBrief = React.createClass({
       }
       else {
         var backgroundStyle = {
-          background: `url('http://${imgUrl}')`,
+          background: `url(${imgUrl})`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'right',
           backgroundSize: 'contain',

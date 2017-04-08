@@ -21,7 +21,7 @@ module.exports = {
           return {
             title: res.data.items[0].fields.title,
             caption: res.data.items[0].fields.pitch,
-            imgUrl: imgUrl
+            imgUrl: `http://${imgUrl}` 
           }        
         }
       }, (res) => {
@@ -49,7 +49,7 @@ module.exports = {
             runtime: res.data.items[1].fields.runtime.toString(),
             contentTags: res.data.items[1].fields.contentTags.join(" + "),
             notes: res.data.items[1].fields.notes,
-            imgUrl: imgUrl        
+            imgUrl: `http://${imgUrl}`         
           }
         }
       }, (res) => {
@@ -71,7 +71,7 @@ module.exports = {
                           .fields.file.url.slice(2);
           return {
             title: res.data.items[5].fields.title,
-            imgUrl: imgUrl
+            imgUrl: `http://${imgUrl}` 
           }        
         }
       }, (res) => {
@@ -79,7 +79,7 @@ module.exports = {
       });
   },
   getMovieArray: function (category) {
-    var requestUrl = TIFF_URL;
+    var requestUrl = TIFF_URL2;
     
     return axios.get(requestUrl)
       .then((res) => {
@@ -89,10 +89,10 @@ module.exports = {
         else {
           return res.data.items
             .filter((el) => { return el.fields.contentTags }) //check for existence of contentTags
+            .filter((el) => { return el.fields.event === false }) //remove events
             .filter((el) => { return el.fields.contentTags.includes(category) })
-            .filter((el) => { return el.fields.event === false })
             .map((el, index) => {
-              const ImgId = res.data.items[index].fields.banner.sys.id; 
+              const ImgId = el.fields.banner.sys.id; 
               const imgUrl = res.data.includes.Asset
                 .filter((el) => { return el.sys.id === ImgId })[0]
                 .fields.file.url.slice(2);
@@ -104,7 +104,7 @@ module.exports = {
                 runtime: el.fields.runtime.toString(),
                 contentTags: el.fields.contentTags.join(" + "),
                 notes: el.fields.notes,
-                imgUrl: imgUrl        
+                imgUrl: `http://${imgUrl}`        
               }
             });
         }

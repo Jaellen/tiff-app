@@ -49,7 +49,7 @@ var Featured = React.createClass({
       }
       else {
         var backgroundStyle = {
-          background: `url('http://${imgUrl}')`,
+          background: `url(${imgUrl})`,
           backgroundPosition: '0 40%',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',

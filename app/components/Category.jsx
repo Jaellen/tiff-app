@@ -1,6 +1,5 @@
 var React = require('react');
 var TiffAPI = require('TiffAPI');
-
 var MovieCard = require('MovieCard'); 
 
 var Category = React.createClass({ 
@@ -13,15 +12,23 @@ var Category = React.createClass({
     this.setState({
       isLoading: true,
       errorMessage: undefined,
-      title: undefined,
-      imageUrl: undefined
+      movie1: undefined,
+      movie2: undefined,
+      movie3: undefined,
+      movie4: undefined,
+      movie5: undefined,
+      movie6: undefined
     });
     
     TiffAPI.getMovieArray(category)
       .then((moviesArray) => {
         this.setState({
-          title: moviesArray[0].title,
-          imgUrl: moviesArray[0].imgUrl,
+          movie1: moviesArray[0],
+          movie2: moviesArray[1],
+          movie3: moviesArray[2],
+          movie4: moviesArray[3],
+          movie5: moviesArray[4],
+          movie6: moviesArray[5],
           isLoading: false
         });
       }, (err) => {
@@ -38,8 +45,12 @@ var Category = React.createClass({
     var {category} = this.props;
     var {
       isLoading, 
-      title,
-      imgUrl,
+      movie1,
+      movie2,
+      movie3,
+      movie4,
+      movie5,
+      movie6,
       errorMessage
     } = this.state;
 
@@ -47,8 +58,29 @@ var Category = React.createClass({
       if (isLoading) {
         return <h5>Loading...</h5>
       }
-      else if (title && imgUrl) {
-        return <MovieCard title={title} imgUrl={imgUrl}/>
+      else if (movie1) {
+        return (
+          <div className="row expanded">
+            <div className="small-2 column">
+              <MovieCard title={movie1.title} imgUrl={movie1.imgUrl}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard title={movie2.title} imgUrl={movie2.imgUrl}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard title={movie3.title} imgUrl={movie3.imgUrl}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard title={movie4.title} imgUrl={movie4.imgUrl}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard title={movie5.title} imgUrl={movie5.imgUrl}/>
+            </div>
+            <div className="small-2 column end">
+              <MovieCard title={movie6.title} imgUrl={movie6.imgUrl}/>
+            </div>
+          </div>
+        )      
       }
     }
     
@@ -63,13 +95,9 @@ var Category = React.createClass({
 
     return (
       <div className="category">
-        <div className="category-title">{category}</div>
-        <div className="row expanded">
-          <div className="small-2 column">
-            {renderMovieCard()}
-            {renderError()}
-          </div>
-        </div>
+        <div className="category-title">{category}</div> 
+          {renderMovieCard()}
+          {renderError()}
       </div>
     );
   }

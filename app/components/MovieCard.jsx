@@ -6,7 +6,7 @@ var MovieCard = React.createClass({
     var backgroundStyle = {
       background: `url(${imgUrl})`,
       backgroundRepeat: 'no-repeat',
-      backgroundSize: 'contain'
+      backgroundSize: 'cover'
     }
 
     return (

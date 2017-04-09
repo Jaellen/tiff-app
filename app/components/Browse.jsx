@@ -10,12 +10,16 @@ var Browse = React.createClass({
       <div className="browse">
         <Category category="Science Fiction"/>
         <MovieBrief/>
-        <Category category="Documentary"/>
-        <Category category="History"/>
-        <Category category="Drama"/>
       </div>
     )
   }
 });
 
 module.exports = Browse;
+
+/*  
+        <Category category="Documentary"/>
+        <Category category="History"/>
+        <Category category="Drama"/>
+
+*/

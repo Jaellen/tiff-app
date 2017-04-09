@@ -59,19 +59,7 @@ var Category = React.createClass({
         return (
           <div className="row expanded">
             <div className="small-2 column">
-              <MovieCard title={movie1.title} imgUrl={movie1.imgUrl}/>
-            </div>
-            <div className="small-2 column">
-              <MovieCard title={movie2.title} imgUrl={movie2.imgUrl}/>
-            </div>
-            <div className="small-2 column">
-              <MovieCard title={movie3.title} imgUrl={movie3.imgUrl}/>
-            </div>
-            <div className="small-2 column">
-              <MovieCard title={movie4.title} imgUrl={movie4.imgUrl}/>
-            </div>
-            <div className="small-2 column end">
-              <MovieCard title={movie5.title} imgUrl={movie5.imgUrl}/>
+              <MovieCard movie={movie1}/>
             </div>
           </div>
         )      
@@ -98,3 +86,20 @@ var Category = React.createClass({
 });
 
 module.exports = Category;
+
+/* 
+
+            <div className="small-2 column">
+              <MovieCard title={movie2.title} imgUrl={movie2.imgUrl}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard title={movie3.title} imgUrl={movie3.imgUrl}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard title={movie4.title} imgUrl={movie4.imgUrl}/>
+            </div>
+            <div className="small-2 column end">
+              <MovieCard title={movie5.title} imgUrl={movie5.imgUrl}/>
+            </div>
+          </div>
+*/

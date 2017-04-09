@@ -3,6 +3,10 @@ var TiffAPI = require('TiffAPI');
 var MovieCard = require('MovieCard'); 
 
 var Category = React.createClass({ 
+  propTypes: {
+    setMovieBrief: React.PropTypes.func.isRequired,
+    isMovieBriefActive: React.PropTypes.bool.isRequired
+  },
   getInitialState: function () {
     return {
       isLoading: false 
@@ -40,7 +44,12 @@ var Category = React.createClass({
     this.getMovieArray(this.props.category);
   },
   render: function () {
-    var {category} = this.props;
+    var {
+      category, 
+      setMovieBrief,
+      isMovieBriefActive
+    } = this.props;
+    
     var {
       isLoading, 
       movie1,
@@ -59,7 +68,9 @@ var Category = React.createClass({
         return (
           <div className="row expanded">
             <div className="small-2 column">
-              <MovieCard movie={movie1}/>
+              <MovieCard movie={movie1} 
+                         setMovieBrief={setMovieBrief}
+                         isMovieBriefActive={isMovieBriefActive} />
             </div>
           </div>
         )      

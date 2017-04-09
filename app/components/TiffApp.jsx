@@ -9,7 +9,6 @@ var TiffApp = React.createClass({
     return (
       <div className="tiff-app">
         <Nav/>
-        <Featured/>
         <Browse/>
       </div>
     );
@@ -17,3 +16,5 @@ var TiffApp = React.createClass({
 });
 
 module.exports = TiffApp;
+
+/* <Featured/> */

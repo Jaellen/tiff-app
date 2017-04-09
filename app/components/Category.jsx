@@ -17,7 +17,6 @@ var Category = React.createClass({
       movie3: undefined,
       movie4: undefined,
       movie5: undefined,
-      movie6: undefined
     });
     
     TiffAPI.getMovieArray(category)
@@ -28,7 +27,6 @@ var Category = React.createClass({
           movie3: moviesArray[2],
           movie4: moviesArray[3],
           movie5: moviesArray[4],
-          movie6: moviesArray[5],
           isLoading: false
         });
       }, (err) => {
@@ -50,7 +48,6 @@ var Category = React.createClass({
       movie3,
       movie4,
       movie5,
-      movie6,
       errorMessage
     } = this.state;
 
@@ -73,11 +70,8 @@ var Category = React.createClass({
             <div className="small-2 column">
               <MovieCard title={movie4.title} imgUrl={movie4.imgUrl}/>
             </div>
-            <div className="small-2 column">
-              <MovieCard title={movie5.title} imgUrl={movie5.imgUrl}/>
-            </div>
             <div className="small-2 column end">
-              <MovieCard title={movie6.title} imgUrl={movie6.imgUrl}/>
+              <MovieCard title={movie5.title} imgUrl={movie5.imgUrl}/>
             </div>
           </div>
         )      

@@ -8,8 +8,11 @@ var Browse = React.createClass({
     
     return (
       <div className="browse">
-        <Category category="Drama"/>
+        <Category category="Science Fiction"/>
         <MovieBrief/>
+        <Category category="Documentary"/>
+        <Category category="History"/>
+        <Category category="Drama"/>
       </div>
     )
   }

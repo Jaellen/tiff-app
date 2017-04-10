@@ -21,7 +21,8 @@ module.exports = {
           return {
             title: res.data.items[0].fields.title,
             caption: res.data.items[0].fields.pitch,
-            imgUrl: `http://${imgUrl}` 
+            imgUrl: `http://${imgUrl}`,
+            movieId: res.data.items[0].sys.id
           }        
         }
       }, (res) => {
@@ -49,7 +50,8 @@ module.exports = {
             runtime: res.data.items[1].fields.runtime.toString(),
             contentTags: res.data.items[1].fields.contentTags.join(" + "),
             notes: res.data.items[1].fields.notes,
-            imgUrl: `http://${imgUrl}`         
+            imgUrl: `http://${imgUrl}`,
+            movieId: res.data.items[1].sys.id
           }
         }
       }, (res) => {
@@ -71,7 +73,8 @@ module.exports = {
                           .fields.file.url.slice(2);
           return {
             title: res.data.items[5].fields.title,
-            imgUrl: `http://${imgUrl}` 
+            imgUrl: `http://${imgUrl}`,
+            movieId: res.data.items[5].sys.id
           }        
         }
       }, (res) => {
@@ -104,7 +107,8 @@ module.exports = {
                 runtime: el.fields.runtime.toString(),
                 contentTags: el.fields.contentTags.join(" + "),
                 notes: el.fields.notes,
-                imgUrl: `http://${imgUrl}`        
+                imgUrl: `http://${imgUrl}`,        
+                movieId: el.sys.id
               }
             });
         }

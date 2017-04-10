@@ -8,9 +8,15 @@ var TiffApp = React.createClass({
   getInitialState: function () {
     return {
       isLoadingFeatured: true,
-      isLoadingBrowse: false,
       isMovieBriefActive: false,
-      movieBriefId: undefined
+      movieBriefCategory: undefined,
+      movieBrief: undefined,
+      categoryArray: [
+        "Science Fiction",
+        "Documentary",
+        "History",
+        "Drama"
+      ]
     }
   },
   getFeaturedMovie: function () {
@@ -32,29 +38,33 @@ var TiffApp = React.createClass({
         });
       });
   },
-  componentDidMount: function () {
-    this.getFeaturedMovie();
-  },
-  setMovieBrief: function (movieId) {
+  setMovieBrief: function (category, movie) {
     if (this.state.isMovieBriefActive) {
       this.setState({
         isMovieBriefActive: false,
-        movieBriefId: undefined 
+        movieBriefCategory: undefined,
+        movieBrief: undefined
       });
     }
     else if (!this.state.isMovieBriefActive) {
       this.setState({
         isMovieBriefActive: true,
-        movieBriefId: movieId
+        movieBriefCategory: category,
+        movieBrief: movie
       });
     } 
+  },
+  componentDidMount: function () {
+    this.getFeaturedMovie();
   },
   render: function () {
     var {
       isLoadingFeatured,
       featuredMovie,
       isMovieBriefActive,
-      movieBriefId
+      movieBriefCategory,
+      movieBrief,
+      categoryArray
     } = this.state;
 
     return (
@@ -65,11 +75,12 @@ var TiffApp = React.createClass({
                 
         <Browse   setMovieBrief={this.setMovieBrief} 
                   isMovieBriefActive={isMovieBriefActive}
-                  movieBriefId={movieBriefId}/>
+                  movieBriefCategory={movieBriefCategory}
+                  categoryArray={categoryArray}
+                  movieBrief={movieBrief}/>
       </div>
     );
   }
 });
 
 module.exports = TiffApp;
-

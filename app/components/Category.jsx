@@ -9,108 +9,75 @@ var Category = React.createClass({
   },
   getInitialState: function () {
     return {
-      isLoading: false 
+      isMoviesLoading: true,
+      errorMessage: undefined
     }
   },
-  getMovieArray: function(category) {
+  getMoviesArray: function(category) {
     this.setState({
-      isLoading: true,
+      isMoviesLoading: true,
       errorMessage: undefined,
-      movie1: undefined,
-      movie2: undefined,
-      movie3: undefined,
-      movie4: undefined,
-      movie5: undefined,
+      moviesArray: undefined
     });
     
-    TiffAPI.getMovieArray(category)
+    TiffAPI.getMoviesArray(category)
       .then((moviesArray) => {
         this.setState({
-          movie1: moviesArray[0],
-          movie2: moviesArray[1],
-          movie3: moviesArray[2],
-          movie4: moviesArray[3],
-          movie5: moviesArray[4],
-          isLoading: false
+          isMoviesLoading: false,
+          moviesArray: moviesArray,
         });
       }, (err) => {
         this.setState({
-          isLoading: false,
+          isMoviesLoading: false,
           errorMessage: err.message
         });
       });
   },
   componentDidMount: function () {
-    this.getMovieArray(this.props.category);
+    this.getMoviesArray(this.props.category);
   },
   render: function () {
-    var {
-      category, 
+    var { 
+      category,
       setMovieBrief,
-      isMovieBriefActive
+      isMovieBriefActive,
     } = this.props;
-    
-    var {
-      isLoading, 
-      movie1,
-      movie2,
-      movie3,
-      movie4,
-      movie5,
+
+    var { 
+      isMoviesLoading,
+      moviesArray,
       errorMessage
     } = this.state;
 
-    function renderMovieCard () {
-      if (isLoading) {
-        return <h5>Loading...</h5>
-      }
-      else if (movie1) {
-        return (
+    if (errorMessage) {
+      console.log("Error: ", errorMessage);
+      <div className="category">
+        <div>Oops! Something went wrong, we're looking into it...</div>
+      </div>
+    }
+    else if (isMoviesLoading) {
+      return (
+        <div className="category">
+          <div>Loading...</div>
+        </div>
+      )
+    }
+    else if (!isMoviesLoading) {
+      return (
+        <div className="category">
+          <div className="category-title">{category}</div> 
           <div className="row expanded">
             <div className="small-2 column">
-              <MovieCard movie={movie1} 
+              <MovieCard movie={moviesArray[0]} 
+                         category={category}
                          setMovieBrief={setMovieBrief}
-                         isMovieBriefActive={isMovieBriefActive} />
+                         isMovieBriefActive={isMovieBriefActive}/>
             </div>
           </div>
-        )      
-      }
+        </div>
+      );
     }
-    
-    function renderError () {
-      if (typeof errorMessage === 'string') { 
-        console.log("Error: ", errorMessage);
-        return (
-          <h5>Oops! Something went wrong, we're working on it</h5>
-        )
-      }
-    }
-
-    return (
-      <div className="category">
-        <div className="category-title">{category}</div> 
-          {renderMovieCard()}
-          {renderError()}
-      </div>
-    );
   }
 });
 
 module.exports = Category;
-
-/* 
-
-            <div className="small-2 column">
-              <MovieCard title={movie2.title} imgUrl={movie2.imgUrl}/>
-            </div>
-            <div className="small-2 column">
-              <MovieCard title={movie3.title} imgUrl={movie3.imgUrl}/>
-            </div>
-            <div className="small-2 column">
-              <MovieCard title={movie4.title} imgUrl={movie4.imgUrl}/>
-            </div>
-            <div className="small-2 column end">
-              <MovieCard title={movie5.title} imgUrl={movie5.imgUrl}/>
-            </div>
-          </div>
-*/

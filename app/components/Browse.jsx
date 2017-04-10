@@ -5,27 +5,34 @@ var MovieBrief = require('MovieBrief');
 var Browse = React.createClass({
   render: function () {
     var {
+      categoryArray,
       setMovieBrief, 
       isMovieBriefActive,
-      movieBriefId
+      movieBriefCategory,
+      movieBrief
     } = this.props;
 
-    return (
-      <div className="browse">
-        <Category category="Science Fiction" 
-                  setMovieBrief={setMovieBrief} 
-                  isMovieBriefActive={isMovieBriefActive}
-                  movieBriefId={movieBriefId}/>
-      </div>
-    )
+    if(!isMovieBriefActive) {
+      return (
+        <div className="browse">
+          <Category category={categoryArray[0]}
+            setMovieBrief={setMovieBrief} 
+            isMovieBriefActive={isMovieBriefActive}/>        
+        </div>
+      )
+    }
+    else if(isMovieBriefActive) {
+      return (
+        <div className="browse">
+          <Category category={categoryArray[0]}
+            setMovieBrief={setMovieBrief} 
+            isMovieBriefActive={isMovieBriefActive}
+            movieBrief={movieBrief}/>        
+          <MovieBrief movie={movieBrief}/>
+        </div>
+      )
+    }
   }
 });
 
 module.exports = Browse;
-
-/*  
-        <Category category="Documentary"/>
-        <Category category="History"/>
-        <Category category="Drama"/>
-
-*/

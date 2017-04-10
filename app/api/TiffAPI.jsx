@@ -81,7 +81,7 @@ module.exports = {
         throw new Error(res.data.message);
       });
   },
-  getMovieArray: function (category) {
+  getMoviesArray: function (category) {
     var requestUrl = TIFF_URL2;
     
     return axios.get(requestUrl)

@@ -14,15 +14,18 @@ module.exports = {
           throw new Error(res.data.message); 
         }
         else {
-          const ImgId = res.data.items[0].fields.banner.sys.id; 
+          const ImgId = res.data.items[91].fields.banner.sys.id; 
           const imgUrl = res.data.includes.Asset
                           .filter((el) => { return el.sys.id === ImgId})[0]
                           .fields.file.url.slice(2);
           return {
-            title: res.data.items[0].fields.title,
-            caption: res.data.items[0].fields.pitch,
+            title: res.data.items[91].fields.title,
+            caption: res.data.items[91].fields.pitch
+                      .replace("</em>", "").replace("<em>", "")
+                      .replace("</p>", "").replace("<p>", "") 
+                      .replace("</strong>", "").replace("<strong>", ""),
             imgUrl: `http://${imgUrl}`,
-            movieId: res.data.items[0].sys.id
+            movieId: res.data.items[91].sys.id
           }        
         }
       }, (res) => {
@@ -44,38 +47,21 @@ module.exports = {
                           .fields.file.url.slice(2);
           return {
             title: res.data.items[1].fields.title,
-            caption: res.data.items[1].fields.pitch,
+            caption: res.data.items[1].fields.pitch
+                      .replace("</em>", "").replace("<em>", "")
+                      .replace("</p>", "").replace("<p>", "") 
+                      .replace("</strong>", "").replace("<strong>", ""),
             year: res.data.items[1].fields.year,
             rating: res.data.items[1].fields.rating,
             runtime: res.data.items[1].fields.runtime.toString(),
             contentTags: res.data.items[1].fields.contentTags.join(" + "),
-            notes: res.data.items[1].fields.notes,
+            notes: res.data.items[1].fields.notes
+                      .replace("</em>", "").replace("<em>", "")
+                      .replace("</p>", "").replace("<p>", "") 
+                      .replace("</strong>", "").replace("<strong>", ""),
             imgUrl: `http://${imgUrl}`,
             movieId: res.data.items[1].sys.id
           }
-        }
-      }, (res) => {
-        throw new Error(res.data.message);
-      });
-  },
-  getMovieCard: function () {
-    var requestUrl = TIFF_URL;
-    
-    return axios.get(requestUrl)
-      .then((res) => {
-        if (res.data.sys.type === "Error" && res.data.message) {
-          throw new Error(res.data.message); 
-        }
-        else {
-          const ImgId = res.data.items[5].fields.banner.sys.id; 
-          const imgUrl = res.data.includes.Asset
-                          .filter((el) => { return el.sys.id === ImgId})[0]
-                          .fields.file.url.slice(2);
-          return {
-            title: res.data.items[5].fields.title,
-            imgUrl: `http://${imgUrl}`,
-            movieId: res.data.items[5].sys.id
-          }        
         }
       }, (res) => {
         throw new Error(res.data.message);
@@ -101,12 +87,18 @@ module.exports = {
                 .fields.file.url.slice(2);
               return {
                 title: el.fields.title,
-                caption: el.fields.pitch,
+                caption: el.fields.pitch
+                      .replace("</em>", "").replace("<em>", "")
+                      .replace("</p>", "").replace("<p>", "") 
+                      .replace("</strong>", "").replace("<strong>", ""),
                 year: el.fields.year,
                 rating: el.fields.rating,
                 runtime: el.fields.runtime.toString(),
                 contentTags: el.fields.contentTags.join(" + "),
-                notes: el.fields.notes,
+                notes: el.fields.notes
+                      .replace("</em>", "").replace("<em>", "")
+                      .replace("</p>", "").replace("<p>", "") 
+                      .replace("</strong>", "").replace("<strong>", ""),
                 imgUrl: `http://${imgUrl}`,        
                 movieId: el.sys.id
               }

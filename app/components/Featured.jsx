@@ -33,7 +33,7 @@ var Featured = React.createClass({
         backgroundPosition: '0 40%',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        height: '450px' 
+        height: '550px' 
       };
       return (
         <div className="featured">

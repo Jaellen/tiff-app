@@ -35,18 +35,37 @@ var TiffApp = React.createClass({
   componentDidMount: function () {
     this.getFeaturedMovie();
   },
+  setMovieBrief: function (movieId) {
+    if (this.state.isMovieBriefActive) {
+      this.setState({
+        isMovieBriefActive: false,
+        movieBriefId: undefined 
+      });
+    }
+    else if (!this.state.isMovieBriefActive) {
+      this.setState({
+        isMovieBriefActive: true,
+        movieBriefId: movieId
+      });
+    } 
+  },
   render: function () {
     var {
       isLoadingFeatured,
-      featuredMovie 
+      featuredMovie,
+      isMovieBriefActive,
+      movieBriefId
     } = this.state;
-    
+
     return (
       <div className="tiff-app">
         <Nav/>
         <Featured featuredMovie={featuredMovie} 
                   isLoadingFeatured={isLoadingFeatured}/>
-        <Browse/>
+                
+        <Browse   setMovieBrief={this.setMovieBrief} 
+                  isMovieBriefActive={isMovieBriefActive}
+                  movieBriefId={movieBriefId}/>
       </div>
     );
   }

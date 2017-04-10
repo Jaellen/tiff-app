@@ -73,6 +73,30 @@ var Category = React.createClass({
                          setMovieBrief={setMovieBrief}
                          isMovieBriefActive={isMovieBriefActive}/>
             </div>
+            <div className="small-2 column">
+              <MovieCard movie={moviesArray[1]} 
+                         category={category}
+                         setMovieBrief={setMovieBrief}
+                         isMovieBriefActive={isMovieBriefActive}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard movie={moviesArray[2]} 
+                         category={category}
+                         setMovieBrief={setMovieBrief}
+                         isMovieBriefActive={isMovieBriefActive}/>
+            </div>
+            <div className="small-2 column">
+              <MovieCard movie={moviesArray[3]} 
+                         category={category}
+                         setMovieBrief={setMovieBrief}
+                         isMovieBriefActive={isMovieBriefActive}/>
+            </div>
+            <div className="small-2 column end">
+              <MovieCard movie={moviesArray[4]} 
+                         category={category}
+                         setMovieBrief={setMovieBrief}
+                         isMovieBriefActive={isMovieBriefActive}/>
+            </div>
           </div>
         </div>
       );

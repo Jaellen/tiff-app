@@ -7,7 +7,7 @@ var MovieCard = React.createClass({
     isMovieBriefActive: React.PropTypes.bool.isRequired,
   },
   handleClick: function () {
-    this.props.setMovieBrief(this.props.movie.category, this.props.movie);
+    this.props.setMovieBrief(this.props.category, this.props.movie);
   },
   render: function () {
     var {movie, isMovieBriefActive} = this.props;

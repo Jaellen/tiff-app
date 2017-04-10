@@ -6,7 +6,8 @@ var Nav = React.createClass({
       <div className="nav row">
 
         <div className="small-7 columns">
-          <img alt={'TIFF'} height={'50px'} width={'50px'} />
+          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/tiff.jpeg'} 
+               alt={'TIFF'} height={'80px'} width={'80px'} />
         </div>
 
         <div className="small-2 columns">
@@ -22,5 +23,3 @@ var Nav = React.createClass({
 });
 
 module.exports = Nav;
-
-/* "https://www.thestar.com/content/dam/thestar/entertainment/movies/2009/08/21/new_logo_reflects_a_film_fest_thats_going_back_to_the_people/tifflogo.jpeg" */

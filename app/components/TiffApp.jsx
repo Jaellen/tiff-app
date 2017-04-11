@@ -74,7 +74,6 @@ var TiffApp = React.createClass({
         <Nav/>
         <Featured featuredMovie={featuredMovie} 
                   isLoadingFeatured={isLoadingFeatured}/>
-                
         <Browse   setMovieBrief={this.setMovieBrief} 
                   isMovieBriefActive={isMovieBriefActive}
                   movieBriefCategory={movieBriefCategory}
@@ -86,16 +85,4 @@ var TiffApp = React.createClass({
 });
 
 module.exports = TiffApp;
-
-/*
-        <Nav/>
-        <Featured featuredMovie={featuredMovie} 
-                  isLoadingFeatured={isLoadingFeatured}/>
-                
-        <Browse   setMovieBrief={this.setMovieBrief} 
-                  isMovieBriefActive={isMovieBriefActive}
-                  movieBriefCategory={movieBriefCategory}
-                  categoryArray={categoryArray}
-                  movieBrief={movieBrief}/>
-*/
 

@@ -12,7 +12,6 @@ var Browse = React.createClass({
       movieBrief
     } = this.props;
 
-
     function renderMovieBrief (category) {
       if (isMovieBriefActive && (category === movieBriefCategory)) {
         return (
@@ -59,3 +58,14 @@ var Browse = React.createClass({
 });
 
 module.exports = Browse;
+
+/*
+
+
+
+
+
+
+
+*/
+

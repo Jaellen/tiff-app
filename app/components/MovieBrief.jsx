@@ -8,13 +8,13 @@ var MovieBrief = React.createClass({
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right',
       backgroundSize: 'contain',
-      height: '500px' 
+      height: '450px' 
     }
     
     return (
       <div className="movie-brief">
         <div className="row"> 
-          <div className="small-5 column">
+          <div className="small-6 column">
             <h1><span className="text-block">{movie.title}</span></h1>
             <h4><span className="text-block">{movie.year} | {movie.rating} | {movie.runtime}min</span></h4>
             <br></br>

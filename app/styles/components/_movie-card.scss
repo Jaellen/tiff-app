@@ -1,7 +1,8 @@
 .movie-card {
-  height: 130px;
-  width: 205px;
+  height: 150px;
+  width: 240px;
   background-color: $light-grey;
+  position: relative;
   
   .text-block {
     color: white;  
@@ -11,4 +12,28 @@
     font-family: $font-roboto;
   }
 
+  .expand {
+    position: absolute;
+    bottom: -25px;
+    height: 25px;
+    width: 240px; 
+    background-color: #3A3A3A;
+  }
+  
+  .expand-arrow {
+    font-weight: 900;
+    font-size: 1.2em;
+    color: white;
+    margin: 48% 50%;
+  }
+
+  .expand:hover {
+    cursor: pointer;
+    background-color: #2199E8;
+    transition: background-color 0.5s ease;
+  }
+
+  .glyphicon-chevron-down {
+    color: white;
+  }
 }

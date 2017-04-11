@@ -21,7 +21,11 @@ var MovieCard = React.createClass({
       <div>
         <div className="movie-card" style={backgroundStyle}>
           <h4><span className="text-block">{movie.title}</span></h4>
-          <button className="button" onClick={this.handleClick}>V</button>
+          <div className="expand" onClick={this.handleClick}>
+            <span className="expand-arrow">
+              <span className="glyphicon glyphicon-chevron-down"></span>
+            </span>
+          </div>
         </div>
       </div> 
     )     

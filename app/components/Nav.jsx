@@ -5,17 +5,13 @@ var Nav = React.createClass({
     return (
       <div className="nav row">
 
-        <div className="small-7 columns">
-          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/tiff.jpeg'} 
-               alt={'TIFF'} height={'80px'} width={'80px'} />
+        <div className="small-3 columns">
+          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/tiff-movies-white.png'} 
+               alt={'TIFF'} height={'65px'} width={'65px'} />
         </div>
-
-        <div className="small-2 columns">
-          <button className="button">Watch Later</button>
-        </div>
-
-        <div className="small-3 columns search-field">
-          <imput type="search" placeholder="Search Movies and Events"/>
+        <div className="small-3 columns">
+          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/tiff-events-white.png'} 
+               alt={'TIFF'} height={'65px'} width={'65px'} />
         </div>
       </div>
     );

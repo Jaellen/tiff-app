@@ -15,7 +15,9 @@ var TiffApp = React.createClass({
         "Science Fiction",
         "Documentary",
         "History",
-        "Drama"
+        "Drama",
+        "Crime",
+        "Female Experience"
       ]
     }
   },

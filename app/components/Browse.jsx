@@ -42,6 +42,17 @@ var Browse = React.createClass({
           setMovieBrief={setMovieBrief} 
           isMovieBriefActive={isMovieBriefActive}/>        
           { renderMovieBrief(categoryArray[3]) }
+          
+      <Category category={categoryArray[4]}
+          setMovieBrief={setMovieBrief} 
+          isMovieBriefActive={isMovieBriefActive}/>        
+          { renderMovieBrief(categoryArray[4]) }
+  
+      <Category category={categoryArray[5]}
+          setMovieBrief={setMovieBrief} 
+          isMovieBriefActive={isMovieBriefActive}/>        
+          { renderMovieBrief(categoryArray[5]) }
+      
       </div>
     )
   }

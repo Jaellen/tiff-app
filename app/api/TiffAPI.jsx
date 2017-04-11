@@ -2,7 +2,7 @@ var axios = require('axios');
 
 const TIFF_URL = 'http://cdn.contentful.com/spaces/22n7d68fswlw/entries?access_token=e12c44b6ab40cf8ac74b544a662664b1b3ca3da7f73db41507102a95ff47f050&content_type=object&fields.seasonId%5Bin%5D=Year-round%20Programming%202016&limit=10.json';
 
-const TIFF_URL2 = 'http://cdn.contentful.com/spaces/22n7d68fswlw/entries?access_token=e12c44b6ab40cf8ac74b544a662664b1b3ca3da7f73db41507102a95ff47f050&content_type=object&fields.seasonId%5Bin%5D=Year-round%20Programming%202016&limit=100.json';
+const TIFF_URL2 = 'http://cdn.contentful.com/spaces/22n7d68fswlw/entries?access_token=e12c44b6ab40cf8ac74b544a662664b1b3ca3da7f73db41507102a95ff47f050&content_type=object&fields.seasonId%5Bin%5D=Year-round%20Programming%202016&limit=1000.json';
 
 module.exports = {
   getFeaturedMovie: function () {
@@ -14,9 +14,9 @@ module.exports = {
           throw new Error(res.data.message); 
         }
         else {
-          const ImgId = res.data.items[91].fields.banner.sys.id; 
+          const imgId = res.data.items[91].fields.banner.sys.id; 
           const imgUrl = res.data.includes.Asset
-                          .filter((el) => { return el.sys.id === ImgId})[0]
+                          .filter((el) => { return el.sys.id === imgId})[0]
                           .fields.file.url.slice(2);
           return {
             title: res.data.items[91].fields.title,
@@ -33,7 +33,7 @@ module.exports = {
       });
   },
   getMovieBrief: function () {
-    var requestUrl = TIFF_URL;
+    var requestUrl = TIFF_URL2;
     
     return axios.get(requestUrl)
       .then((res) => {
@@ -41,10 +41,14 @@ module.exports = {
           throw new Error(res.data.message); 
         }
         else { 
-          const ImgId = res.data.items[1].fields.banner.sys.id; 
-          const imgUrl = res.data.includes.Asset
-                          .filter((el) => { return el.sys.id === ImgId})[0]
-                          .fields.file.url.slice(2);
+          var imgId = res.data.items[1].fields.banner.sys.id; 
+          var imgUrl = res.data.includes.Asset
+                          .filter((el) => { return el.sys.id === imgId})[0]
+                          .fields.file.url.slice(2) 
+          if (imgId === undefined || imgUrl === undefined) {
+            imgUrl = "s3.ca-central-1.amazonaws.com/tiff-app/image-not-available.jpg" 
+          } 
+          
           return {
             title: res.data.items[1].fields.title,
             caption: res.data.items[1].fields.pitch
@@ -81,10 +85,14 @@ module.exports = {
             .filter((el) => { return el.fields.event === false }) //remove events
             .filter((el) => { return el.fields.contentTags.includes(category) })
             .map((el, index) => {
-              const ImgId = el.fields.banner.sys.id; 
-              const imgUrl = res.data.includes.Asset
-                .filter((el) => { return el.sys.id === ImgId })[0]
+              var imgId = el.fields.banner.sys.id; 
+              var imgUrl = res.data.includes.Asset
+                .filter((el) => { return el.sys.id === imgId })[0]
                 .fields.file.url.slice(2);
+              
+              if (imgId === undefined || imgUrl === undefined) {
+                imgUrl = "s3.ca-central-1.amazonaws.com/tiff-app/image-not-available.jpg" 
+              } 
               return {
                 title: el.fields.title,
                 caption: el.fields.pitch

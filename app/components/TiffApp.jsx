@@ -88,7 +88,7 @@ var TiffApp = React.createClass({
 module.exports = TiffApp;
 
 /*
-
+        <Nav/>
         <Featured featuredMovie={featuredMovie} 
                   isLoadingFeatured={isLoadingFeatured}/>
                 

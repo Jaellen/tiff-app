@@ -30,7 +30,7 @@ var Featured = React.createClass({
     else {
       var backgroundStyle = {
         background: `url(${featuredMovie.imgUrl})`,
-        backgroundPosition: '0 40%',
+        backgroundPosition: '0',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         height: '550px' 
@@ -38,9 +38,21 @@ var Featured = React.createClass({
       return (
         <div className="featured">
           <div style={backgroundStyle}> 
-            <h1><span className="text-block">{featuredMovie.title}</span></h1>
+            <h1>
+              <span className="text-block tiff text-block-title">
+                TIFF Movie of the Month:
+              </span>
+            </h1>
+            <br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br>
+            
+            <button className="button">
+              <span className="glyphicon glyphicon-plus"></span><span> </span>
+              MY LIST
+            </button>
+            
+            <h1><span className="text-block text-block-title">{featuredMovie.title}</span></h1>
             <h3><span className="text-block">{featuredMovie.caption}</span></h3>
-            <button className="button">+ MY LIST</button>
           </div>
         </div>
       )  

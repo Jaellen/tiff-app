@@ -1,13 +1,22 @@
 .featured {
   height: 550px;
   background-color: $light-grey;
-
+  
   .text-block {
     color: white;  
     letter-spacing: -1px;  
     background: rgb(0, 0, 0); /* fallback color */
     background: rgba(0, 0, 0, 1);
     padding: 3px;
+  }
+
+  .text-block-title {
+    padding: 0;
+  }
+
+  .tiff {
+    color: $orange;
+    font-size: 2.3rem;
   }
 
   h1 {
@@ -18,5 +27,9 @@
     margin-left: 5px;
     font-weight: 700;
   }
+
+  .glyphicon-plus {
+    font-weight: 500;
+  } 
 }
 

@@ -86,3 +86,16 @@ var TiffApp = React.createClass({
 });
 
 module.exports = TiffApp;
+
+/*
+
+        <Featured featuredMovie={featuredMovie} 
+                  isLoadingFeatured={isLoadingFeatured}/>
+                
+        <Browse   setMovieBrief={this.setMovieBrief} 
+                  isMovieBriefActive={isMovieBriefActive}
+                  movieBriefCategory={movieBriefCategory}
+                  categoryArray={categoryArray}
+                  movieBrief={movieBrief}/>
+*/
+

@@ -2,8 +2,64 @@
   height: 60px;
   max-width: none;
   background-color: $dark-grey;
+
+  .logo-movies {
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin-top: 3px; 
+  }
+ 
+  .logo-movies:hover {
+    cursor: pointer;
+  }
+
+  .logo-events {
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin-top: 3px;
+  }
   
+  .logo-events:hover {
+    cursor: pointer;
+  }
+
+  .line-break {
+    color: $orange;
+    font-size: 3em;
+    line-height: 1.1;
+    float: left;
+    margin: 0 10px;
+  }
+
+  .small-offset-4 {
+    margin-left: 37%;
+  }
+  
+  .small-2, .small-offset-4, .column {
+    height: inherit;
+  }
+
+  .nav-icons {
+    float: right;
+    margin-right: 40px;
+  }
+
   .glyphicon {
+    font-size: 1.5em;
+    margin-top: 15px;
     color: white;
+    transition: color 0.5s ease;
+  }
+
+  .glyphicon:hover {
+    color: $orange;
+    transition: color 0.5s ease;
+    cursor: pointer;
+  }
+
+  .user {
+    margin-right: 40px;
   }
 }

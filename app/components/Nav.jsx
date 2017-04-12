@@ -22,15 +22,18 @@ var Nav = React.createClass({
         </div>
 
         <div className="nav-icons">
-          <span className="glyphicon glyphicon-user"></span>
+          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/user.png'} 
+               alt={'User'} width="43px"/>
         </div>
 
         <div className="nav-icons">
-          <span className="glyphicon glyphicon-bookmark"></span>
+          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/bookmark.png'} 
+               alt={'Bookmark'} width="23px"/>
         </div>
       
         <div className="nav-icons user">
-          <span className="glyphicon glyphicon-search"></span>
+          <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/search.png'} 
+               alt={'Search'} width="33px"/>
         </div>
      
       </div>

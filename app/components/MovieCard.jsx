@@ -23,7 +23,8 @@ var MovieCard = React.createClass({
           <h4><span className="text-block">{movie.title}</span></h4>
           <div className="expand" onClick={this.handleClick}>
             <span className="expand-arrow">
-              <span className="glyphicon glyphicon-chevron-down"></span>
+              <img src={'https://s3.ca-central-1.amazonaws.com/tiff-app/arrow-down.png'} 
+                alt={'v'} width='20px' ></img>
             </span>
           </div>
         </div>

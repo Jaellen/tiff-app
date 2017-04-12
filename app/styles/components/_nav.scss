@@ -43,7 +43,7 @@
 
   .nav-icons {
     float: right;
-    margin-right: 40px;
+    margin: 11px 40px 0 0;
   }
 
   .glyphicon {
@@ -60,6 +60,10 @@
   }
 
   .user {
-    margin-right: 40px;
+    margin: 11px 40px 0 0;
+  }
+
+  img {
+    cursor: pointer;
   }
 }
